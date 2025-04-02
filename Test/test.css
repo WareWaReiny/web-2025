@@ -1,0 +1,237 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+}
+
+input {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit
+}
+
+object {
+  position: relative;
+  z-index: -1;
+  max-width: 24px;
+  max-height: 24px;
+}
+
+body {
+  font-family: 'Oxygen', sans-serif;
+  /* font-family: 'Lora', serif; */
+}
+
+.container {
+  max-width: 1000px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.main {
+  background-image: url(../imgs/adminbg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100svh;
+  padding-top: 120px;
+}
+
+.main__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px 200px;
+}
+
+.title-name {
+  color: white;
+}
+
+.title {
+  font-family: Lora;
+  font-size: 45.5px;
+  font-weight: 400;
+  line-height: 45.5px;
+  margin-bottom: 16px;
+}
+
+.title span {
+  font-family: Oxygen;
+  font-size: 24.5px;
+  font-weight: 400;
+  line-height: 31px;
+}
+
+.subtitle {
+  font-family: Oxygen;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.login--form {
+  border-radius: 3px;
+  background-color: #fff;
+  color: black;
+  padding: 40px;
+  max-height: 560px;
+  width: fit-content;
+}
+
+.form-title {
+  font-family: Lora;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px;
+  padding-top: 16px;
+  margin-bottom: 50px;
+}
+
+.form_errors {
+  display: none;
+}
+
+.form_errors.open-error {
+  display: flex;
+  gap: 0 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  border-left: 2px solid rgb(232, 105, 97);
+  border-radius: 5px;
+  background-color: rgb(255, 235, 234);
+  padding: 10px 12px 13px 14px;
+}
+
+.error-text {
+  color: rgb(46, 46, 46);
+  font-family: Oxygen;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 40px 0;
+}
+
+.login > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px 0;
+}
+
+.login > div > label {
+  color: rgb(122, 122, 122);
+  font-family: Oxygen;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.login > div > input {
+  padding: 8px 4px;
+  border-bottom: 1px solid rgb(234, 234, 234);
+  width: 400px;
+  height: 40px;
+}
+
+.login > div > input:focus {
+  outline: none;
+  border-bottom: 1px solid rgb(46, 46, 46);
+  border-radius: 5px 5px 0px 0px;
+  background-color: rgb(247, 247, 247);
+}
+
+.login > div > input:required {
+  border-bottom: 1px solid rgb(232, 105, 97);
+}
+
+.button-login {
+  outline: none;
+  color: rgb(255, 255, 255);
+  font-family: Oxygen;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(221, 120, 63);
+  padding: 12px 24px;
+  max-width: 93px;
+  transition: all 0.28s ease;
+}
+
+.button-login:hover,
+.button-login:focus {
+  background-color: rgb(192, 96, 40);
+}
+
+.password-form {
+  position: relative;
+}
+
+.button--password {
+  position: absolute;
+  right: 12px;
+  top: 29px;
+  content: '';
+  background-color: transparent;
+  border: none;
+  z-index: 2;
+}
+
+.button--password:focus {
+  outline: 2px solid rgba(221, 120, 63, 0.4);
+}
+
+.error-form--text {
+  display: none;
+}
+
+.opened-pass,
+.closed-pass {
+  display: none;
+}
+
+.opened-pass.show,
+.closed-pass.show {
+  display: block;
+}
+
+.error-form--text.open-error {
+  display: block;
+  color: rgb(232, 105, 97);
+  font-family: Oxygen;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.alert-circle {
+  z-index: 0;
+}
+
+@media only screen and (max-width: 500px) {
+  .login > div > input {
+    width: 290px;
+  }
+}
