@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;700&display=swap');
+
+body {
+    font-family: 'Golos Text', Arial, sans-serif;
+}
+
+body {
+    font-family: 'Golos Text', sans-serif;
+    background-color: #ffffff;
+}
+
+.content {
+    width: 474px;
+    height: 474px; 
+    padding: 20px;     
+}
+
+.post {
+    background-color: #fff;
+    padding: 15px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.username {
+    font-size: 14px;
+}
+
+.post-image {
+    width: 100%;  
+}
+
+.post-info {
+    padding-top: 10px;
+    width: 474px;
+}
+
+.like-button {
+    background: #2222220D;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.post-text {
+    width: 474px;
+    height: 37px;
+    color: #222222;
+    font-size: 15px;
+}
+
+.time {
+    font-size: 14px;
+    color: #22222280;
+}

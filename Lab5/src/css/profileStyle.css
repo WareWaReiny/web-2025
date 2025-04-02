@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;700&display=swap');
+
+body {
+    font-family: 'Golos Text', Arial, sans-serif;
+}
+
+.profile-info {
+    width: 361px;
+    height: 36px; 
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 10px;
+}
+
+.profile-info img {
+    border-radius: 20px; 
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.gallery {
+    width: 972px;
+    height: 1621px;
+    margin-top: 250px; 
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+} 
+
+.gallery-image {
+    width: 300px; 
+    height: 300px; 
+    margin: 5px;
+    border-radius: 5px;
+    object-fit: cover; /*обрезка изображения для соответствия размерам*/
+}

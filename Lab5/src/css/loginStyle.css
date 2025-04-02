@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;700&display=swap');
+
+body {
+    font-family: 'Golos Text', Arial, sans-serif;
+}
+
+/* Обращение к тегам */
+
+.left h1 {
+    font-size: 140px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Golos Text', sans-serif;
+    color: #222222;
+}
+
+.left img {
+    width: 462px;
+    height: 501px;
+    margin-bottom: 40px;
+}
+
+.form {
+    width: 343px;
+    height: 251px;
+    margin-top: 20px;
+}
+
+.form p {
+    color: #808080;
+    font-size: 13px;
+}
+
+.form label {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.form-field {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px #F2F3F5;
+    border-radius: 10px;
+    background-color: #F2F3F5;
+}
+
+.form img {
+    width: 20px;
+    height: 20px;
+    margin: 10px 0;
+}
+
+.button {
+    width: 343px;
+    height: 48px;
+    padding: 10px;
+    background-color: #222222;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+}
