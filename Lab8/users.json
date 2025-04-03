@@ -1,0 +1,47 @@
+[
+    {
+      "id": 1,
+      "name": "Ваня Денисов",
+      "avatar": "src/images/avatar_image.jpg",
+      "bio": "Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!",
+      "posts": [
+        {
+          "id": 1,
+          "image": "src/images/snow_in_town.jpg",
+          "text": "Так красиво сегодня на улице! Настоящая зима. Вспоминается Бродский: «Поздно ночью, в уснувшей долине, на самом дне, в гор…»",
+          "likes": 225,
+          "timestamp": 1711800000
+        },
+        {
+          "id": 2,
+          "image": "src/images/town.jpg",
+          "text": "Прогулки по городу вдохновляют!",
+          "likes": 150,
+          "timestamp": 1711886400
+        }
+      ],
+      "gallery": [
+        "src/images/snow_in_town.jpg",
+        "src/images/town.jpg",
+        "src/images/cake.jpg",
+        "src/images/people.jpg",
+        "src/images/coffee.jpg",
+        "src/images/book.jpg"
+    ]
+    },
+    {
+      "id": 2,
+      "name": "Лиза Дёмина",
+      "avatar": "src/images/main_picture1.jpg",
+      "bio": "Фотограф и любитель книг.",
+      "posts": [
+        {
+          "id": 1,
+          "image": "src/images/book_on_the_table.jpg",
+          "text": "Новая книга в коллекции!",
+          "likes": 90,
+          "timestamp": 1711972800
+        }
+      ]
+    }
+  ]
