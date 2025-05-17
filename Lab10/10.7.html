@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор паролей</title>
+</head>
+<body>
+    <h1>Генератор паролей</h1>
+    <label>Длина пароля: <input type="number" id="length"></label>
+    <button onclick="generate()">Сгенерировать</button>
+    <div id="result"></div>
+    <script>
+        function generate() {
+            const length = parseInt(document.getElementById('length').value);
+            const lower = 'abcdefghijklmnopqrstuvwxyz';
+            const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const numbers = '0123456789';
+            const symbols = '!@#$%^&*';           
+            let pass = [
+                lower[Math.floor(Math.random() * lower.length)],
+                upper[Math.floor(Math.random() * upper.length)],
+                numbers[Math.floor(Math.random() * numbers.length)],
+                symbols[Math.floor(Math.random() * symbols.length)]
+            ];           
+            const all = lower + upper + numbers + symbols;
+            while(pass.length < length) {
+                pass.push(all[Math.floor(Math.random() * all.length)]);
+            }           
+            pass = pass.sort(() => Math.random() - 0.5).join('');
+            document.getElementById('result').textContent = pass;
+        }
+    </script>
+</body>
+</html>

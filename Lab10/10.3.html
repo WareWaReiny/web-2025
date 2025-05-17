@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Подсчет уникальных элементов</title>
+</head>
+<body>
+    <h1>Подсчет уникальных элементов массива</h1>
+    <label for="inputArray">Введите массив элементов:</label>
+    <input type="text" id="inputArray">
+    <button onclick="countUnique()">Подсчитать уникальные</button>
+    <div id="result"></div>
+    <script>
+        function uniqueElements(arr) {
+            if (!Array.isArray(arr)) {
+                return "Ошибка: Введите массив элементов.";
+            }
+            const counts = {};
+            for (let i = 0; i < arr.length; i++) {
+                const element = String(arr[i]); 
+                counts[element] = (counts[element] || 0) + 1;
+            }
+            return counts;
+        }
+        function countUnique() {
+            try {
+                const input = document.getElementById('inputArray').value;
+                const items = input.split(',').map(item => item.trim());
+                const result = uniqueElements(items);
+                document.getElementById('result').textContent = JSON.stringify(result, null, 2);
+            } catch {
+                document.getElementById('result').textContent = 
+                    "Ошибка: Введите элементы через запятую (например: яблоко, банан, апельсин)";
+            }
+        }
+    </script>
+</body>
+</html>

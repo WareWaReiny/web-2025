@@ -1,0 +1,58 @@
+[
+    {
+      "id": 3,
+      "user_id": 1,
+      "image": "src/images/snow_in_town.jpg",
+      "text": "",
+      "likes": 0,
+      "timestamp": 0
+    },
+    {
+      "id": 4,
+      "user_id": 1,
+      "image": "src/images/town.jpg",
+      "text": "",
+      "likes": 0,
+      "timestamp": 0
+    },
+    {
+      "id": 5,
+      "user_id": 1,
+      "image": "src/images/cake.jpg",
+      "text": "",
+      "likes": 0,
+      "timestamp": 0
+    },
+    {
+      "id": 6,
+      "user_id": 1,
+      "image": "src/images/people.jpg",
+      "text": "",
+      "likes": 0,
+      "timestamp": 0
+    },
+    {
+      "id": 7,
+      "user_id": 1,
+      "image": "src/images/coffee.jpg",
+      "text": "",
+      "likes": 0,
+      "timestamp": 0
+    },
+    {
+      "id": 8,
+      "user_id": 1,
+      "image": "src/images/book.jpg",
+      "text": "",
+      "likes": 0,
+      "timestamp": 0
+    },
+    {
+      "id": 9,
+      "user_id": 2,
+      "image": "src/images/book_on_the_table.jpg",
+      "text": "Новая книга в коллекции!",
+      "likes": 90,
+      "timestamp": 1711972800
+    }
+  ]

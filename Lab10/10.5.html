@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Извлечение имён пользователей</title>
+</head>
+<body>
+    <h1>Извлечение имён пользователей</h1>   
+    <label for="usersInput">Введите массив пользователей в JSON-формате:</label><br>
+    <textarea id="usersInput"></textarea><br><br>   
+    <button onclick="extractNames()">Извлечь имена</button>  
+    <div id="result"></div>
+    <script>
+        function extractNames() {
+            const input = document.getElementById('usersInput').value;
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = '';
+            try {
+                if (!input) {
+                    throw new Error('Введите данные в JSON-формате');
+                }
+                const users = JSON.parse(input);
+                if (!Array.isArray(users)) {
+                    throw new Error('Данные должны быть массивом объектов');
+                }
+                const names = users.map(user => {
+                    if (!user || typeof user !== 'object') {
+                        throw new Error('Каждый элемент должен быть объектом');
+                    }
+                    if (!user.name) {
+                        throw new Error('Объект должен содержать поле "name"');
+                    }
+                    return user.name;
+                });
+                resultDiv.textContent = JSON.stringify(names, null, 2);              
+            } catch (error) {
+                resultDiv.textContent = 'Ошибка: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!-- [
+  {"id": 1, "name": "Alice"},
+  {"id": 2, "name": "Bob"},
+  {"id": 3, "name": "Charlie"}
+] -->

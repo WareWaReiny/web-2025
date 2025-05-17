@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Объединение map и filter</title>
+</head>
+<body>
+    <h1>Объединение map и filter</h1>
+    <label>Введите числа через запятую: <input type="text" id="numbers"></label>
+    <button onclick="process()">Обработать</button>
+    <div id="result"></div>
+    <script>
+        function process() {
+            const nums = document.getElementById('numbers').value
+                .split(',')
+                .map(n => +n)
+                .filter(n => !isNaN(n));           
+            const res = nums
+                .map(n => n * 3)
+                .filter(n => n > 10);            
+            document.getElementById('result').textContent = res.join(', ');
+        }
+    </script>
+</body>
+</html>
+
+<!-- 2,5,8,10,3,6,1 -->

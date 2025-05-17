@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Проверка простых чисел</title>
+</head>
+<body>
+    <h1>Проверка простых чисел</h1>
+    <p>Введите число или несколько чисел через запятую:</p>
+    <input type="text" id="inputNumbers">
+    <button onclick="checkNumbers()">Проверить</button>
+    <div id="result"></div>
+    <script>
+        function isPrime(x) {
+            if (x < 2) return false;
+            if (x === 2) return true;
+            if (x % 2 === 0) return false;
+            for (let i = 3; i <= Math.sqrt(x); i += 2) {
+                if (x % i === 0) return false;
+            }
+            return true;
+        }
+        function checkNumbers() {
+            const userInput = document.getElementById('inputNumbers').value;
+            const numberStrings = userInput.split(',');
+            const results = [];
+            for (const str of numberStrings) {
+                const number = Number(str); 
+                if (isNaN(number)) {
+                    results.push(`"${str}" - это не число`);
+                } 
+                else if (!Number.isInteger(number)) {
+                    results.push(`${number} - не целое число`);
+                } 
+                else {
+                    const isNumPrime = isPrime(number);
+                    results.push(`${number} - ${isNumPrime ? 'простое' : 'не простое'}`);
+                }
+            }
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = results.join('<br>');
+        }
+    </script>
+</body>
+</html>

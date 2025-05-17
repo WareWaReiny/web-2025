@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Объединение объектов</title>
+</head>
+<body>
+    <h1>Объединение двух объектов</h1>
+    <label for="object1">Введите первый объект:</label>
+    <textarea id="object1"></textarea><br>
+    <label for="object2">Введите второй объект:</label>
+    <textarea id="object2"></textarea><br>
+    <button onclick="mergeAndDisplay()">Объединить</button>
+    <div id="result"></div>
+    <script>
+        function parseObjectInput(input) {
+            const obj = {};
+            if (!input) return obj;
+            const pairs = input.split(',');
+            for (const pair of pairs) {
+                const [key, value] = pair.split(':');
+                if (key && value !== undefined) {
+                    obj[key] = isNaN(value) ? value : Number(value);
+                }
+            }
+            return obj;
+        }
+        function mergeObjects(obj1, obj2) {
+            return { ...obj1, ...obj2 };
+        }
+        function mergeAndDisplay() {
+            const object1Input = document.getElementById('object1').value;
+            const object2Input = document.getElementById('object2').value;
+            const resultDiv = document.getElementById('result');
+            try {
+                const obj1 = parseObjectInput(object1Input);
+                const obj2 = parseObjectInput(object2Input);
+                const merged = mergeObjects(obj1, obj2);
+                let resultText = '';
+                for (const [key, value] of Object.entries(merged)) {
+                    resultText += `${key}: ${value}\n`;
+                }                
+                resultDiv.textContent = resultText || "Объекты пусты";
+                console.log("Результат объединения:", merged);               
+            } catch (error) {
+                resultDiv.textContent = "Ошибка: Проверьте формат ввода (используйте 'ключ:значение, ключ:значение')";
+                console.error("Ошибка:", error);
+            }
+        }
+    </script>
+</body>
+</html>
