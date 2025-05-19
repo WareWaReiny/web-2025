@@ -33,7 +33,6 @@ function getAllPosts($connection) {
 
 function getUserById($connection, $userId) {
     try {
-        // Получаем данные пользователя
         $stmt = $connection->prepare("SELECT * FROM user WHERE id = :id");
         $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
         $stmt->execute();
@@ -43,7 +42,6 @@ function getUserById($connection, $userId) {
             return null;
         }
 
-        // Получаем посты пользователя
         $stmt = $connection->prepare("
             SELECT * FROM post 
             WHERE user_id = :user_id 
@@ -53,10 +51,8 @@ function getUserById($connection, $userId) {
         $stmt->execute();
         $user['posts'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Добавляем счетчик постов
         $user['posts_count'] = count($user['posts']);
 
-        // Создаем галерею изображений из постов
         $user['gallery'] = array_column($user['posts'], 'image');
 
         return $user;

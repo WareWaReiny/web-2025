@@ -32,19 +32,16 @@
     }
 
     function validateTimestamp($timestamp) {
-        // числовое значение?
         if (!is_numeric($timestamp)) {
             return "Ожидается числовое значение.";
         }
     
-        // >= 0 (1970 год)
         if ($timestamp < 0) {
             return "Время не может быть отрицательным.";
         }
     
-        // ограничение года до 2038 
         $currentTimestamp = time();
-        if ($timestamp > $currentTimestamp + 100 * 365 * 24 * 60 * 60) { // примерно 100 лет в секундах
+        if ($timestamp > $currentTimestamp + 100 * 365 * 24 * 60 * 60) {
             return "Метка времени слишком велика.";
         }
 
