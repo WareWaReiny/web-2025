@@ -12,6 +12,21 @@ body {
     border-radius: 10px;
 }
 
+.posts-container {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.posts-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+}
+
 .profile-info img {
     border-radius: 20px; 
     object-fit: cover;
@@ -32,5 +47,5 @@ body {
     height: 300px; 
     margin: 5px;
     border-radius: 5px;
-    object-fit: cover; /*обрезка изображения для соответствия размерам*/
+    object-fit: cover; 
 }
