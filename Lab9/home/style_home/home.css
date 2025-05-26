@@ -1,0 +1,146 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    height: 100vh;
+}
+
+.page {
+    display: flex;
+    min-height: 100vh;
+    background: #fff;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+}
+
+.sidebar__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 15px;
+    color: #000;
+    text-decoration: none;
+    border-radius: 8px; 
+}
+
+.sidebar__link:hover {
+    background-color: #f0f0f0;
+}
+
+.content-area {
+    margin-left: 60px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 20px;
+}
+
+.post {
+    width: 600px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post__header {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.post__author-container {
+    display: flex;
+    align-items: center;
+  }
+
+.post__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px; 
+    object-fit: cover;
+}
+
+.post__author {
+    font-weight: 600;
+    font-size: 14px;
+    color: #111;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+.edit-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 400px;
+  }
+
+.post__edit-icon {
+    margin-left: auto;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+}
+
+.post__edit-icon:hover {
+    opacity: 1;
+}
+
+.post__image {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+.like-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f2f3f3;
+    border-radius: 8px; 
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 15px;
+    color: #000000;
+    user-select: none;
+}
+  
+.like-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+  
+.like-count {
+    line-height: 1;
+}  
+
+.post__text {
+    font-size: 14px;
+    color: #222;
+    margin-top: 12px;
+ 
+}
+
+.post__date {
+    color: #888;
+    font-size: 12px;
+    margin-top: 12px;           
+}
+flex space between
+

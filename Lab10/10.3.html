@@ -13,7 +13,7 @@
     <script>
         function uniqueElements(arr) {
             if (!Array.isArray(arr)) {
-                return "Ошибка: Введите массив элементов.";
+                return "Ошибка. Нужно ввести массив элементов.";
             }
             const counts = {};
             for (let i = 0; i < arr.length; i++) {
@@ -25,7 +25,7 @@
         function countUnique() {
             try {
                 const input = document.getElementById('inputArray').value;
-                const items = input.split(',').map(item => item.trim());
+                const items = input.split(',').map(item => item);
                 const result = uniqueElements(items);
                 document.getElementById('result').textContent = JSON.stringify(result, null, 2);
             } catch {

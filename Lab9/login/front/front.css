@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Golos UI";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../1/golos-ui_vf.woff2") format("woff2"),
+         url("../1/golos-ui_vf.woff") format("woff");
+    font-display: swap;
+}
+
+body {
+    font-family: "Golos UI", sans-serif;
+}
