@@ -7,6 +7,7 @@
         }
         return true;
     }
+
     function validateValueType($value, $expectedType) {
         switch ($expectedType) {
             case 'string':
@@ -37,7 +38,7 @@
             return "Время не может быть отрицательным.";
         }
         $currentTimestamp = time();
-        if ($timestamp > $currentTimestamp + 100 * 365 * 24 * 60 * 60) { // примерно 100 лет в секундах
+        if ($timestamp > $currentTimestamp + 100 * 365 * 24 * 60 * 60) { 
             return "Метка времени слишком велика.";
         }
         return true;
