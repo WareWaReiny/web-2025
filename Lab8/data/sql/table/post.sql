@@ -4,7 +4,7 @@ CREATE TABLE post (
     content VARCHAR(200) NOT NULL,
     likes INT NOT NULL DEFAULT 0,
     posted_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    image VARCHAR(255);
+    image VARCHAR(255),
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 

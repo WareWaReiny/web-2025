@@ -1,5 +1,4 @@
 <?php 
-include 'validation.php';
 include 'database.php';
 
 $connection = connectDatabase();
@@ -11,50 +10,12 @@ if ($userId === null || !is_numeric($userId) || $userId <= 0) {
 }
 
 $user = getUserById($connection, $userId);
-
 if ($user === null) {
     header("Location: home.php");
     exit;
 }
 
-$validationErrors = [];
-$nameValidation = validateStringLength($user['name'], 2, 100);
-if ($nameValidation !== true) {
-    $validationErrors[] = "Имя: $nameValidation";
-}
-
-foreach ($user['posts'] as $post) {
-    $timestampValidation = validateTimestamp(strtotime($post['posted_at']));
-    if ($timestampValidation !== true) {
-        $validationErrors[] = "Пост с ID {$post['id']}: $timestampValidation";
-    }
-}
-
-$postsValidation = validateValueType($user['posts'], 'array');
-if ($postsValidation !== true) {
-    $validationErrors[] = "Посты: $postsValidation";
-}
-
-$postsValidation = validateValueType($user['name'], 'string');
-if ($postsValidation !== true) {
-    $validationErrors[] = "Имя: $postsValidation";
-}
-
-$postsValidation = validateValueType($user['id'], 'int');
-if ($postsValidation !== true) {
-    $validationErrors[] = "ID: $postsValidation";
-}
-
-if (count($validationErrors) > 0) {
-    echo "<ul>";
-    foreach ($validationErrors as $error) {
-        echo "<li>$error</li>";
-    }
-    echo "</ul>";
-    exit;
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>

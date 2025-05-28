@@ -44,13 +44,15 @@ if (!empty($files['image'])) {
     }
     
     if (empty($errors)) {
-        if (!file_exists('images')) {
-            mkdir('images', 0777, true);
+        $imageDir = 'src/images';
+
+        if (!file_exists($imageDir)) {
+            mkdir($imageDir, 0777, true);
         }
         
         $extension = pathinfo($image['name'], PATHINFO_EXTENSION);
         $imageName = uniqid() . '.' . $extension;
-        $imagePath = 'images/' . $imageName;
+        $imagePath = $imageDir . '/' . $imageName;
 
         if (!move_uploaded_file($image['tmp_name'], $imagePath)) {
             $errors[] = 'Ошибка при сохранении изображения';

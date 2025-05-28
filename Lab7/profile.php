@@ -1,72 +1,55 @@
 <?php 
 include 'users.php';
-include 'gallery.php';
+include 'posts.php';
 include 'validation.php';
 include 'error-log.php';
-// logErrorsToFile(["Тестовая ошибка 2"]);
 
 $validationErrors = [];
 $userId = isset($_GET['user_id']) ? (int)$_GET['user_id'] : 0;
 
+// Подготовка ассоциативного массива пользователей
 $usersById = [];
 foreach ($users as $user) {
     $usersById[$user['id']] = $user;
 }
 
+// Проверка существования пользователя
 if (!isset($usersById[$userId])) {  
     header('Location: home.php');
     exit;
 }
 
 $user = $usersById[$userId];
-$userGallery = array_filter($gallery, function($item) use ($userId) {
-    return $item['user_id'] == $userId;
-});
 
+// Валидация ID
 $idValidation = validateValueType($userId, 'int');
 if ($idValidation !== true) {
     $validationErrors[] = "ID пользователя: $idValidation";
 }
 
-if (!empty($user['posts']) && is_array($user['posts'])) {
-    foreach ($user['posts'] as $post) {
-        if (!isset($post['id'], $post['timestamp'])) {
-            $validationErrors[] = "Пост не содержит обязательных полей (ID или timestamp)";
-            continue;
-        }
+// Получаем посты пользователя
+$userPosts = array_filter($posts, function($post) use ($userId) {
+    return $post['user_id'] == $userId;
+});
 
-        $timestampValidation = validateTimestamp($post['timestamp']);
-        if ($timestampValidation !== true) {
-            $validationErrors[] = "Пост ID {$post['id']}: $timestampValidation";
-        }
-
-        if (isset($post['content'])) {
-            $contentValidation = validateStringLength($post['content'], 0, 1000);
-            if ($contentValidation !== true) {
-                $validationErrors[] = "Содержание поста ID {$post['id']}: $contentValidation";
-            }
-        }
+// Фильтрация корректных постов
+$validGallery = [];
+foreach ($userPosts as $post) {
+    if (!isset($post['id'], $post['image'], $post['timestamp'])) {
+        $validationErrors[] = "Пост ID {$post['id']} не содержит обязательных полей.";
+        continue;
     }
-} elseif (isset($user['posts']) && !is_array($user['posts'])) {
-    $validationErrors[] = "Посты пользователя должны быть массивом";
-}
 
-$userGallery = [];
-if (empty($validationErrors)) {
-    $validGallery = [];
-    foreach ($gallery as $item) {
-        if (!isset($item['user_id'], $item['image'], $item['timestamp'])) {
-            continue;
-        }
-        if (validateValueType($item['user_id'], 'int') === true &&
-            validateStringLength($item['image'], 10, 255) === true &&
-            validateTimestamp($item['timestamp']) === true) {
-            $validGallery[] = $item;
-        }
+    // Проверка валидности
+    if (
+        validateValueType($post['id'], 'int') === true &&
+        validateStringLength($post['image'], 5, 255) === true &&
+        validateTimestamp($post['timestamp'], true) === true // допускаем timestamp = 0
+    ) {
+        $validGallery[] = $post;
+    } else {
+        $validationErrors[] = "Пост ID {$post['id']} содержит некорректные данные.";
     }
-    $userGallery = array_filter($validGallery, function($item) use ($userId) {
-        return $item['user_id'] == $userId;
-    });
 }
 
 if (!empty($validationErrors)) {
@@ -74,28 +57,28 @@ if (!empty($validationErrors)) {
     header('Location: home.php');
     exit;
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $user['name']; ?></title>
+    <title><?php echo htmlspecialchars($user['name']); ?></title>
     <link rel="stylesheet" href="src/css/profileStyle.css">
 </head>
 <body>
     <div class="profile-info">
-        <img src="<?php echo $user['avatar']; ?>" alt="profile's picture" height="150" width="150">
-        <h3><?php echo $user['name']; ?></h3>
-        <p><?php echo $user['bio']; ?></p>
+        <img src="<?php echo htmlspecialchars($user['avatar']); ?>" alt="profile's picture" height="150" width="150">
+        <h3><?php echo htmlspecialchars($user['name']); ?></h3>
+        <p><?php echo htmlspecialchars($user['bio']); ?></p>
         <div class="posts-container">
             <img class="posts" src="src/images/Frame39.png" alt="posts count">
         </div>
     </div>
     <div class="gallery">
-        <?php if (!empty($userGallery)): ?>
-            <?php foreach ($userGallery as $image): ?>
-                <img src="<?php echo $image['image']; ?>" alt="posted picture" class="gallery-image">
+        <?php if (!empty($validGallery)): ?>
+            <?php foreach ($validGallery as $post): ?>
+                <img src="<?php echo htmlspecialchars($post['image']); ?>" alt="posted picture" class="gallery-image">
             <?php endforeach; ?>
         <?php else: ?>
             <p>Нет постов</p>
