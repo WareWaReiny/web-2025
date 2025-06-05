@@ -7,7 +7,7 @@
     <body>
         <h1>Калькулятор (обратная польская запись)</h1>
         <form method="post">
-            <input type="text" name="expression" placeholder="Введите выражение (например: 2 3 + 4 *)" required>
+            <input type="text" name="expression">
             <button type="submit">Вычислить</button>
         </form>
 
@@ -71,4 +71,5 @@
 2 3 +
 5 1 2 + 4 * + 
 7 3 - 2 *
+8 9 + 1 7 - *
 -->

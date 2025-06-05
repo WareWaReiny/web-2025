@@ -1,0 +1,66 @@
+body {
+    font-family: sans-serif; /* Более приятный шрифт */
+    margin: 0; /* Убираем стандартные отступы body */
+    background-color: #fff; 
+}
+
+/* Левая боковая панель */
+.sidebar {
+    /* width: 60px; */
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    border-right: 1px solid #ddd;
+    position: fixed;
+    left: 0;
+}
+
+.profile-info {
+    text-align: center; /* Выравниваем аватарку и текст по центру */
+    padding: 20px; /* Добавляем отступ сверху и снизу */
+}
+
+.profile-avatar {
+    border-radius: 16%; /* Делаем аватарку круглой */
+    margin-bottom: 10px; /* Отступ между аватаркой и именем */
+}
+
+h3 {
+    margin-bottom: 5px; /* Отступ под именем */
+}
+
+.gallery {
+    display: flex;            /* Делаем галерею flex контейнером */
+    flex-wrap: wrap;          /* Переносим изображения на новую строку, если не хватает места */
+    padding: 20px;           /* Отступ вокруг галереи */
+    width: 972px;
+    justify-content: center; /* Выравниваем изображения по центру */
+    margin: 0 auto; /* Центрируем */
+}
+
+.gallery-image {
+    width: 300px;           /* Ширина изображения */
+    height: 300px;          /* Высота изображения */
+    object-fit: cover;       /* Заполняем контейнер изображения, обрезая его при необходимости */
+    margin: 5px;           /* Отступ между изображениями */
+}
+
+.profile-info {
+    text-align: center; /* Выравниваем аватарку и текст по центру */
+    padding: 20px; /* Добавляем отступ сверху и снизу */
+}
+
+.posts-container {
+    display: flex; /* Используем flexbox для центрирования */
+    justify-content: center; /* Центрируем по горизонтали */
+    margin-top: 10px; /* Добавляем небольшой отступ сверху от описания */
+}
+
+.posts {
+    /* Дополнительные стили для картинки, если нужны */
+    /* Например, можно задать ширину: */
+    /* width: 100px; */
+}

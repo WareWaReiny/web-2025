@@ -7,13 +7,11 @@ include 'error-log.php';
 $validationErrors = [];
 $userId = isset($_GET['user_id']) ? (int)$_GET['user_id'] : 0;
 
-// Подготовка ассоциативного массива пользователей
 $usersById = [];
 foreach ($users as $user) {
     $usersById[$user['id']] = $user;
 }
 
-// Проверка существования пользователя
 if (!isset($usersById[$userId])) {  
     header('Location: home.php');
     exit;
@@ -21,18 +19,15 @@ if (!isset($usersById[$userId])) {
 
 $user = $usersById[$userId];
 
-// Валидация ID
 $idValidation = validateValueType($userId, 'int');
 if ($idValidation !== true) {
     $validationErrors[] = "ID пользователя: $idValidation";
 }
 
-// Получаем посты пользователя
 $userPosts = array_filter($posts, function($post) use ($userId) {
     return $post['user_id'] == $userId;
 });
 
-// Фильтрация корректных постов
 $validGallery = [];
 foreach ($userPosts as $post) {
     if (!isset($post['id'], $post['image'], $post['timestamp'])) {
@@ -40,11 +35,10 @@ foreach ($userPosts as $post) {
         continue;
     }
 
-    // Проверка валидности
     if (
         validateValueType($post['id'], 'int') === true &&
         validateStringLength($post['image'], 5, 255) === true &&
-        validateTimestamp($post['timestamp'], true) === true // допускаем timestamp = 0
+        // validateTimestamp($post['timestamp'], true) === true // допускаем timestamp = 0
     ) {
         $validGallery[] = $post;
     } else {

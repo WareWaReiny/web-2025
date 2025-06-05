@@ -19,9 +19,9 @@
             const pairs = input.split(',');
             for (const pair of pairs) {
                 const [key, value] = pair.split(':');
-                if (key && value !== undefined) {
-                    obj[key] = isNaN(value) ? value : Number(value);
-                }
+                // if (key && value !== undefined) {
+                //     obj[key] = isNaN(value) ? value : Number(value);
+                // }
             }
             return obj;
         }

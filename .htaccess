@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# 1. Перенаправление с .php на URL без расширения (скрытие .php)
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+# 2. Внутренняя обработка для .php файлов (обслуживание .php файлов, даже если пользователь вводит URL без расширения)
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [NC,L]
+
+# 3. (Опционально) Перенаправление с .html на URL без расширения, если у вас есть .html файлы
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+# 4. (Опционально) Внутренняя обработка для .html файлов, если у вас есть .html файлы
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [NC,L]

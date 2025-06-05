@@ -30,6 +30,7 @@
         }
         return true;
     }
+    
     function validateTimestamp($timestamp) {
         if (!is_numeric($timestamp)) {
             return "Ожидается числовое значение.";
